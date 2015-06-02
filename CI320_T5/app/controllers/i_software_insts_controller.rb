@@ -69,6 +69,6 @@ class ISoftwareInstsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def i_software_inst_params
-      params.require(:i_software_inst).permit(:i_software_inst_name)
+      params.require(:i_software_inst).permit(:i_software_inst_name, :server_id, :i_software_id)
     end
 end

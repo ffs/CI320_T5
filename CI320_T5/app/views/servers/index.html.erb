@@ -1,6 +1,6 @@
 <h1>Listing servers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Server name</th>
@@ -22,9 +22,9 @@
         <td><%= server.storage %></td>
         <td><%= server.ip_address %></td>
         <td><%= server.oper_sys %></td>
-        <td><%= link_to 'Show', server %></td>
-        <td><%= link_to 'Edit', edit_server_path(server) %></td>
-        <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', server, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_server_path(server), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>

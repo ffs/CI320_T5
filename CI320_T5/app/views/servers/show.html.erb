@@ -30,5 +30,54 @@
   <%= @server.oper_sys %>
 </p>
 
+<p>
+  <strong>Software List:</strong>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Software Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+    <% @isoft = FSoftwareInst.where(:server_id => @server.id) %>
+    <% @isoft.each do |software| %>
+      <tr>
+        <td><%= software.i_software_inst_name %></td>
+        <td><%= link_to 'Show', software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_i_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+
+
+    <% @isoft = DbInst.where(:server_id => @server.id) %>
+    <% @isoft.each do |software| %>
+      <tr>
+        <td><%= software.i_software_inst_name %></td>
+        <td><%= link_to 'Show', software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_i_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+
+
+    <% @isoft = ISoftwareInst.where(:server_id => @server.id) %>
+    <% @isoft.each do |software| %>
+      <tr>
+        <td><%= software.i_software_inst_name %></td>
+        <td><%= link_to 'Show', software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_i_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</p>
+
 <%= link_to 'Edit', edit_server_path(@server) %> |
 <%= link_to 'Back', servers_path %>
