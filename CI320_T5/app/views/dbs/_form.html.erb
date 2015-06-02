@@ -1,0 +1,45 @@
+<%= form_for(@db) do |f| %>
+  <% if @db.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@db.errors.count, "error") %> prohibited this db from being saved:</h2>
+
+      <ul>
+      <% @db.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :db_name %><br>
+    <%= f.text_field :db_name %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br>
+    <%= f.text_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :growthRate %><br>
+    <%= f.text_field :growthRate %>
+  </div>
+  <div class="field">
+    <%= f.label :clonedate %><br>
+    <%= f.date_select :clonedate %>
+  </div>
+  <div class="field">
+    <%= f.label :cpu %><br>
+    <%= f.text_field :cpu %>
+  </div>
+  <div class="field">
+    <%= f.label :memory %><br>
+    <%= f.text_field :memory %>
+  </div>
+  <div class="field">
+    <%= f.label :storage %><br>
+    <%= f.text_field :storage %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

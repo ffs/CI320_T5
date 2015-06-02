@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  db_name: MyString
+  version: MyString
+  growthRate: 1.5
+  clonedate: 2015-06-01
+  cpu: MyString
+  memory: MyString
+  storage: MyString
+
+two:
+  db_name: MyString
+  version: MyString
+  growthRate: 1.5
+  clonedate: 2015-06-01
+  cpu: MyString
+  memory: MyString
+  storage: MyString

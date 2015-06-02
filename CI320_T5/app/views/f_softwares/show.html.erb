@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>F software name:</strong>
+  <%= @f_software.f_software_name %>
+</p>
+
+<p>
+  <strong>Cpu:</strong>
+  <%= @f_software.cpu %>
+</p>
+
+<p>
+  <strong>Memory:</strong>
+  <%= @f_software.memory %>
+</p>
+
+<p>
+  <strong>Storage:</strong>
+  <%= @f_software.storage %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @f_software.version %>
+</p>
+
+<%= link_to 'Edit', edit_f_software_path(@f_software) %> |
+<%= link_to 'Back', f_softwares_path %>

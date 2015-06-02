@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  server_name: MyString
+  cpu: MyString
+  memory: MyString
+  storage: MyString
+  ip_address: MyString
+  oper_sys: MyString
+
+two:
+  server_name: MyString
+  cpu: MyString
+  memory: MyString
+  storage: MyString
+  ip_address: MyString
+  oper_sys: MyString

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Db name:</strong>
+  <%= @db.db_name %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @db.version %>
+</p>
+
+<p>
+  <strong>Growthrate:</strong>
+  <%= @db.growthRate %>
+</p>
+
+<p>
+  <strong>Clonedate:</strong>
+  <%= @db.clonedate %>
+</p>
+
+<p>
+  <strong>Cpu:</strong>
+  <%= @db.cpu %>
+</p>
+
+<p>
+  <strong>Memory:</strong>
+  <%= @db.memory %>
+</p>
+
+<p>
+  <strong>Storage:</strong>
+  <%= @db.storage %>
+</p>
+
+<%= link_to 'Edit', edit_db_path(@db) %> |
+<%= link_to 'Back', dbs_path %>

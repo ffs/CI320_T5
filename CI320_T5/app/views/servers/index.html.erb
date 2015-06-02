@@ -1,0 +1,35 @@
+<h1>Listing servers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Server name</th>
+      <th>Cpu</th>
+      <th>Memory</th>
+      <th>Storage</th>
+      <th>Ip address</th>
+      <th>Oper sys</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servers.each do |server| %>
+      <tr>
+        <td><%= server.server_name %></td>
+        <td><%= server.cpu %></td>
+        <td><%= server.memory %></td>
+        <td><%= server.storage %></td>
+        <td><%= server.ip_address %></td>
+        <td><%= server.oper_sys %></td>
+        <td><%= link_to 'Show', server %></td>
+        <td><%= link_to 'Edit', edit_server_path(server) %></td>
+        <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Server', new_server_path %>

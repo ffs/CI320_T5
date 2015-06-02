@@ -1,0 +1,37 @@
+<h1>Listing dbs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Db name</th>
+      <th>Version</th>
+      <th>Growthrate</th>
+      <th>Clonedate</th>
+      <th>Cpu</th>
+      <th>Memory</th>
+      <th>Storage</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dbs.each do |db| %>
+      <tr>
+        <td><%= db.db_name %></td>
+        <td><%= db.version %></td>
+        <td><%= db.growthRate %></td>
+        <td><%= db.clonedate %></td>
+        <td><%= db.cpu %></td>
+        <td><%= db.memory %></td>
+        <td><%= db.storage %></td>
+        <td><%= link_to 'Show', db %></td>
+        <td><%= link_to 'Edit', edit_db_path(db) %></td>
+        <td><%= link_to 'Destroy', db, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Db', new_db_path %>

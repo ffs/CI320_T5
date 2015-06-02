@@ -1,0 +1,37 @@
+<%= form_for(@f_software) do |f| %>
+  <% if @f_software.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@f_software.errors.count, "error") %> prohibited this f_software from being saved:</h2>
+
+      <ul>
+      <% @f_software.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :f_software_name %><br>
+    <%= f.text_field :f_software_name %>
+  </div>
+  <div class="field">
+    <%= f.label :cpu %><br>
+    <%= f.text_field :cpu %>
+  </div>
+  <div class="field">
+    <%= f.label :memory %><br>
+    <%= f.text_field :memory %>
+  </div>
+  <div class="field">
+    <%= f.label :storage %><br>
+    <%= f.text_field :storage %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br>
+    <%= f.text_field :version %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

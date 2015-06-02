@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  f_software_inst_name: MyString
+
+two:
+  f_software_inst_name: MyString

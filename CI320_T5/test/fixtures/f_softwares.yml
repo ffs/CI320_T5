@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  f_software_name: MyString
+  cpu: MyString
+  memory: MyString
+  storage: MyString
+  version: MyString
+
+two:
+  f_software_name: MyString
+  cpu: MyString
+  memory: MyString
+  storage: MyString
+  version: MyString

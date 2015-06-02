@@ -1,0 +1,27 @@
+<h1>Listing i_softwares</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>I software name</th>
+      <th>Version</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @i_softwares.each do |i_software| %>
+      <tr>
+        <td><%= i_software.i_software_name %></td>
+        <td><%= i_software.version %></td>
+        <td><%= link_to 'Show', i_software %></td>
+        <td><%= link_to 'Edit', edit_i_software_path(i_software) %></td>
+        <td><%= link_to 'Destroy', i_software, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New I software', new_i_software_path %>
