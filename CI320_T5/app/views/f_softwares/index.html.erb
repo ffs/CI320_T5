@@ -1,10 +1,15 @@
-<h1>Listing f_softwares</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'All Softwares', softwares_path %></li>
+  <li class="active"><%= link_to 'Final Softwares', f_softwares_path %></li>
+  <li><%= link_to 'Intermediate Software', i_softwares_path %></li>
+  <li><%= link_to 'Databases', dbs_path %></li>
+</ul>
 
-<table>
+<table class ="table">
   <thead>
     <tr>
-      <th>F software name</th>
-      <th>Cpu</th>
+      <th>Name</th>
+      <th>Processor</th>
       <th>Memory</th>
       <th>Storage</th>
       <th>Version</th>
@@ -20,9 +25,9 @@
         <td><%= f_software.memory %></td>
         <td><%= f_software.storage %></td>
         <td><%= f_software.version %></td>
-        <td><%= link_to 'Show', f_software %></td>
-        <td><%= link_to 'Edit', edit_f_software_path(f_software) %></td>
-        <td><%= link_to 'Destroy', f_software, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', f_software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_f_software_path(f_software), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', f_software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +35,10 @@
 
 <br>
 
-<%= link_to 'New F software', new_f_software_path %>
+<%= link_to new_f_software_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Final Software
+<% end %>
+
+<%= link_to new_f_software_inst_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Instantiate Final Software
+<% end %>

@@ -43,24 +43,24 @@
   <tbody>
 
 
-    <% @isoft = FSoftwareInst.where(:server_id => @server.id) %>
-    <% @isoft.each do |software| %>
+    <% @fsoft = FSoftwareInst.where(:server_id => @server.id) %>
+    <% @fsoft.each do |fsoftware| %>
       <tr>
-        <td><%= software.i_software_inst_name %></td>
-        <td><%= link_to 'Show', software, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_i_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= fsoftware.f_software_inst_name %></td>
+        <td><%= link_to 'Show', fsoftware, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_f_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', fsoftware, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
 
 
-    <% @isoft = DbInst.where(:server_id => @server.id) %>
-    <% @isoft.each do |software| %>
+    <% @db = DbInst.where(:server_id => @server.id) %>
+    <% @db.each do |dbms| %>
       <tr>
-        <td><%= software.i_software_inst_name %></td>
-        <td><%= link_to 'Show', software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= dbms.db_inst_name %></td>
+        <td><%= link_to 'Show', dbms, class: 'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Edit', edit_i_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', dbms, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
 

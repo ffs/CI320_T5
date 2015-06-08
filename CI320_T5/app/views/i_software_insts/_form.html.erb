@@ -11,22 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :i_software_inst_name %><br>
+  <div class="form-group field">
+    <%= f.label :i_software_inst_name, 'Instance Name' %><br>
     <%= f.text_field :i_software_inst_name %>
   </div>
 
-  <div class="field">
+  <div class="form-group field">
+    <%= f.label :server_id, 'Instance Server' %><br>
     <% servers_array = Server.all.map { |s| [s.server_name, s.id] } %>
     <%= f.select(:server_id, options_for_select(servers_array)) %>
   </div>
 
-  <div class="field">
+  <div class="form-group field">
+    <%= f.label :i_software_id, 'Intermediate Software' %><br>
     <% softwares_array = ISoftware.all.map { |s| [s.i_software_name, s.id] } %>
     <%= f.select(:i_software_id, options_for_select(softwares_array)) %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group actions">
+    <%= f.submit "Instantiate Software", class: 'btn btn-primary' %>
   </div>
+
 <% end %>

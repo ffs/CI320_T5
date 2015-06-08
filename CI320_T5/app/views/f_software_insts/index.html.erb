@@ -1,9 +1,15 @@
-<h1>Listing f_software_insts</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'All Software Instances', instances_path %></li>
+  <li class="active"><%= link_to 'Final Software Instances', f_software_insts_path %></li>
+  <li><%= link_to 'Intermediate Software Instances', i_software_insts_path %></li>
+  <li><%= link_to 'Databases Instances', db_insts_path %></li>
+</ul>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>F software inst name</th>
+      <th>Name</th>
+      <th>Server</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,10 +17,12 @@
   <tbody>
     <% @f_software_insts.each do |f_software_inst| %>
       <tr>
+        <% server = Server.find(f_software_inst.server_id) %>
         <td><%= f_software_inst.f_software_inst_name %></td>
-        <td><%= link_to 'Show', f_software_inst %></td>
-        <td><%= link_to 'Edit', edit_f_software_inst_path(f_software_inst) %></td>
-        <td><%= link_to 'Destroy', f_software_inst, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to server.server_name, server %></td>
+        <td><%= link_to 'Show', f_software_inst, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_f_software_inst_path(f_software_inst), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', f_software_inst, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +30,7 @@
 
 <br>
 
-<%= link_to 'New F software inst', new_f_software_inst_path %>
+<%= link_to new_f_software_inst_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Instantiate Final Software
+<% end %>
+

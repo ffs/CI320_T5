@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h2 class="text-center login-title">Already have an account? </h2>
+      <div class="account-wall">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-group form-signin', 'data-bar' => 'baz'}) do |f| %>
+          <div>
+            <strong> Email </strong>
+            <%= f.email_field :email, autofocus: true, class: 'form-group form-control', placeholder: 'Type your email here' %>
+          </div>
+          <div>
+            <strong> Password </strong>
+            <%= f.password_field :password, class: 'form-group form-control', placeholder: 'Type your password here' %>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Sign in</button>
+          <label class="form-group checkbox pull-left">
+          <input type="checkbox" value="remember_me">
+          Remember me
+          </label>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>

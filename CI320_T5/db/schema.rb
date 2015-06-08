@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602025925) do
+ActiveRecord::Schema.define(version: 20150608165705) do
 
   create_table "db_insts", force: true do |t|
     t.string   "db_inst_name"
@@ -45,8 +45,10 @@ ActiveRecord::Schema.define(version: 20150602025925) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "server_id"
+    t.integer  "f_software_id"
   end
 
+  add_index "f_software_insts", ["f_software_id"], name: "index_f_software_insts_on_f_software_id"
   add_index "f_software_insts", ["server_id"], name: "index_f_software_insts_on_server_id"
 
   create_table "f_softwares", force: true do |t|
@@ -92,6 +94,18 @@ ActiveRecord::Schema.define(version: 20150602025925) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", force: true do |t|
+    t.string   "role_name"
+    t.string   "role_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", id: false, force: true do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
+  end
+
   create_table "servers", force: true do |t|
     t.string   "server_name"
     t.string   "cpu"
@@ -102,5 +116,27 @@ ActiveRecord::Schema.define(version: 20150602025925) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.integer  "roles_mask"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "last_name"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

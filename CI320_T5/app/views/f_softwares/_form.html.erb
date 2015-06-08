@@ -11,27 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :f_software_name %><br>
+  <div class="form-group field">
+    <%= f.label 'Name' %><br>
     <%= f.text_field :f_software_name %>
   </div>
-  <div class="field">
-    <%= f.label :cpu %><br>
+  <div class="form-group field">
+    <%= f.label :cpu, 'Required Processor' %><br>
     <%= f.text_field :cpu %>
   </div>
-  <div class="field">
-    <%= f.label :memory %><br>
-    <%= f.text_field :memory %>
+
+  <div class="form-group field">
+    <%= f.label :memory, 'Required Memory' %><br>
+    <%= f.select(:memory, ['2 GB', '4 GB', '8 GB', '16 GB', '32 GB', '64 GB', '128 GB', '256 GB', '512 GB']) %>
   </div>
-  <div class="field">
-    <%= f.label :storage %><br>
+
+  <div class="form-group field">
+    <%= f.label :storage, 'Required Storage' %><br>
     <%= f.text_field :storage %>
   </div>
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :version %><br>
     <%= f.text_field :version %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group actions">
+    <%= f.submit "Create Software", class: 'btn btn-primary' %>
   </div>
+  
 <% end %>

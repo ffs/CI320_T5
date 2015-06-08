@@ -11,31 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :server_name %><br>
     <%= f.text_field :server_name %>
   </div>
-  <div class="field">
-    <%= f.label :cpu %><br>
+  <div class="field form-group">
+    <%= f.label 'Processor' %><br>
     <%= f.text_field :cpu %>
   </div>
-  <div class="field">
+
+  <div class="form-group field">
     <%= f.label :memory %><br>
-    <%= f.text_field :memory %>
+    <%= f.select(:memory, ['2 GB', '4 GB', '8 GB', '16 GB', '32 GB', '64 GB', '128 GB', '256 GB', '512 GB']) %>
   </div>
-  <div class="field">
+
+  <div class="form-group field">
     <%= f.label :storage %><br>
     <%= f.text_field :storage %>
   </div>
-  <div class="field">
+
+  <div class="form-group field">
     <%= f.label :ip_address %><br>
     <%= f.text_field :ip_address %>
   </div>
-  <div class="field">
+
+  <div class="form-group field">
     <%= f.label :oper_sys %><br>
     <%= f.text_field :oper_sys %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="form-group actions">
+    <%= f.submit "Create Server", class: 'btn btn-primary' %>
   </div>
+
 <% end %>

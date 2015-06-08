@@ -25,5 +25,37 @@
   <%= @f_software.version %>
 </p>
 
+<p>
+
+  <strong>Instances:</strong>
+
+  <table class="table">
+    <thead>
+      <tr>
+      <th>Name</th>
+      <th>Server</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% instancias = FSoftwareInst.where(:f_software_id => @f_software.id ) %>
+
+      <% instancias.each do |fsoftware| %>
+        <% server = Server.find(fsoftware.server_id) %>
+        <tr>
+          <td><%= fsoftware.f_software_inst_name %></td>
+          <td><%= link_to server.server_name, server %></td>
+          <td><%= link_to 'Show', fsoftware, class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Edit', edit_f_software_inst_path(server.id), class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Destroy', fsoftware, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+</p>
+
 <%= link_to 'Edit', edit_f_software_path(@f_software) %> |
 <%= link_to 'Back', f_softwares_path %>

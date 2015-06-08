@@ -1,4 +1,9 @@
-<h1>Intermediate Softwares</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'All Softwares', softwares_path %></li>
+  <li><%= link_to 'Final Softwares', f_softwares_path %></li>
+  <li class="active"><%= link_to 'Intermediate Softwares', i_softwares_path %></li>
+  <li><%= link_to 'Databases', dbs_path %></li>
+</ul>
 
 <table class="table">
   <thead>
@@ -24,4 +29,10 @@
 
 <br>
 
-<%= link_to 'New Intermediate Software', new_i_software_path %>
+<%= link_to new_i_software_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Intermediate Software
+<% end %>
+
+<%= link_to new_i_software_inst_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Instantiate Intermediate Software
+<% end %>

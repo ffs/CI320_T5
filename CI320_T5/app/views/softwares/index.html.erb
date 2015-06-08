@@ -1,0 +1,98 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'All Softwares', softwares_path %></li>
+  <li><%= link_to 'Final Softwares', f_softwares_path %></li>
+  <li><%= link_to 'Intermediate Software', i_softwares_path %></li>
+  <li><%= link_to 'Databases', dbs_path %></li>
+</ul>
+
+<h3> Final Softwares </h3>
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Processor</th>
+      <th>Memory</th>
+      <th>Storage</th>
+      <th>Version</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fsoftwares.each do |f_software| %>
+      <tr>
+        <td><%= f_software.f_software_name %></td>
+        <td><%= f_software.cpu %></td>
+        <td><%= f_software.memory %></td>
+        <td><%= f_software.storage %></td>
+        <td><%= f_software.version %></td>
+        <td><%= link_to 'Show', f_software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_f_software_path(f_software), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', f_software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3> Intermediate Softwares </h3>
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @isoftwares.each do |i_software| %>
+      <tr>
+        <td><%= i_software.i_software_name %></td>
+        <td><%= i_software.version %></td>
+        <td><%= link_to 'Show', i_software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_f_software_path(i_software), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', i_software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3> Databases </h3>
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dbs.each do |db| %>
+      <tr>
+        <td><%= db.i_software_name %></td>
+        <td><%= db.version %></td>
+        <td><%= link_to 'Show', db, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_f_software_path(db), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', db, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_f_software_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Final Software
+<% end %>
+
+<%= link_to new_i_software_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Intermediate Software
+<% end %>
+
+<%= link_to new_db_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Database
+<% end %>
