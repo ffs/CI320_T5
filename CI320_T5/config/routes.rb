@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_scope :user do
-    root to: "users/sessions#new"
-  end
-  
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations' } 
 
   resources :roles
 
@@ -33,6 +29,8 @@ Rails.application.routes.draw do
   resources :softwares
 
   resources :instances
+
+  resources :dashboard
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

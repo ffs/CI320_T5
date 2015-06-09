@@ -1,7 +1,8 @@
-<h2>Register</h2>
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(@user) do |f| %>
   <%= error_messages(@user,"Could not register user") %>
+
   <div class="form-group field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name, autofocus: true  %>
@@ -9,25 +10,31 @@
 
   <div class="form-group field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name  %>
+    <%= f.text_field :last_name %>
   </div>
 
   <div class="form-group field">
-    <%= f.label :email, 'E-mail' %><br />
-    <%= f.email_field :email, autocomplete: "off" %>
+    <%= f.label :email %> <br>
+    <%= f.email_field :email %>
   </div>
 
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
   <div class="form-group field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="form-group field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="form-group field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="form-group field">
@@ -39,8 +46,10 @@
     <%= hidden_field_tag "user[roles][]", "" %>
   </div>
 
-  <div class="form-group actions">
-    <%= f.submit "Create Account", class: 'btn btn-primary' %>
-  </div>
 
+  <div class="form-group actions">
+    <%= f.submit "Update", class: 'btn btn-lg btn-success' %>
+  </div>
 <% end %>
+
+<%= link_to "Back", :back %>

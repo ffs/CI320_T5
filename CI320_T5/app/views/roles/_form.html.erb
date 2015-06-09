@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :role_name %><br>
     <%= f.text_field :role_name %>
   </div>
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :role_description %><br>
     <%= f.text_field :role_description %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group actions">
+    <%= f.submit "Create Role", class: 'btn btn-primary' %>
   </div>
 <% end %>

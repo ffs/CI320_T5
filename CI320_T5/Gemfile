@@ -7,6 +7,8 @@ gem 'rails', '4.1.6'
 gem 'bcrypt', '3.1.7'
 # Adding Authentication with Devise
 gem 'devise'
+# Adding Authorization with Pundit
+gem 'pundit'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

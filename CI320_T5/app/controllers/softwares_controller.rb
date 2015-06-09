@@ -1,5 +1,6 @@
 class SoftwaresController < ApplicationController
-
+  load_and_authorize_resource
+  
   # GET /softwares
   # GET /softwares.json
   def index

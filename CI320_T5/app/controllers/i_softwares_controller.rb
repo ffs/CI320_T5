@@ -1,4 +1,5 @@
 class ISoftwaresController < ApplicationController
+  load_and_authorize_resource
   before_action :set_i_software, only: [:show, :edit, :update, :destroy]
 
   # GET /i_softwares

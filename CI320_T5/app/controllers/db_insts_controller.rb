@@ -1,4 +1,5 @@
 class DbInstsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_db_inst, only: [:show, :edit, :update, :destroy]
 
   # GET /db_insts

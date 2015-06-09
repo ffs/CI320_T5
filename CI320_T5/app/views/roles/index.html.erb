@@ -1,6 +1,6 @@
 <h1>Listing roles</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Role name</th>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= role.role_name %></td>
         <td><%= role.role_description %></td>
-        <td><%= link_to 'Show', role %></td>
-        <td><%= link_to 'Edit', edit_role_path(role) %></td>
-        <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', role, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_role_path(role), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,6 @@
 
 <br>
 
-<%= link_to 'New Role', new_role_path %>
+<%= link_to new_role_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Role
+<% end %>

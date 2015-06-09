@@ -22,9 +22,22 @@
         <td><%= server.storage %></td>
         <td><%= server.ip_address %></td>
         <td><%= server.oper_sys %></td>
-        <td><%= link_to 'Show', server, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_server_path(server), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+        <td>
+          <% if can? :show, @server %>
+            <%= link_to "Show", server, class: 'btn btn-primary btn-xs' %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :update, @server %>
+            <%= link_to "Edit", edit_server_path(server), class: 'btn btn-primary btn-xs' %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if can? :destroy, @server %>
+            <%= link_to "Destroy", server, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
