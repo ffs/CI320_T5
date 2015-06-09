@@ -1,6 +1,7 @@
 class DbInstsController < ApplicationController
-  load_and_authorize_resource
   before_action :set_db_inst, only: [:show, :edit, :update, :destroy]
+  before_filter :get_user
+  before_filter :admin_authorization, :except => [:index, :show] 
 
   # GET /db_insts
   # GET /db_insts.json
@@ -71,5 +72,16 @@ class DbInstsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def db_inst_params
       params.require(:db_inst).permit(:db_inst_name)
+    end
+
+    def get_user
+      @user = current_user
+    end
+
+    def admin_authorization
+      role = Role.find(current_user.role_id)
+      if (role.name != 'Admin')
+        redirect_to '/softwares/', :alert => "Access denied."
+      end
     end
 end

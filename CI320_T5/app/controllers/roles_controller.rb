@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
-  load_and_authorize_resource
-
   before_action :set_role, only: [:show, :edit, :update, :destroy]
+  before_filter :get_user
+  before_filter :admin_authorization
 
   # GET /roles
   # GET /roles.json
@@ -72,5 +72,16 @@ class RolesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params
       params.require(:role).permit(:role_name, :role_description)
+    end
+
+    def get_user
+      @user = current_user
+    end
+
+    def admin_authorization
+      role = Role.find(current_user.role_id)
+      if (role.name != 'Admin')
+        redirect_to '/softwares/', :alert => "Access denied."
+      end
     end
 end

@@ -1,6 +1,7 @@
 class FSoftwaresController < ApplicationController
-  load_and_authorize_resource
   before_action :set_f_software, only: [:show, :edit, :update, :destroy]
+  before_filter :get_user
+  before_filter :admin_authorization, :except => [:index, :show]
 
   # GET /f_softwares
   # GET /f_softwares.json
@@ -71,5 +72,16 @@ class FSoftwaresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def f_software_params
       params.require(:f_software).permit(:f_software_name, :cpu, :memory, :storage, :version)
+    end
+
+    def get_user
+      @user = current_user
+    end
+
+    def admin_authorization
+      role = Role.find(current_user.role_id)
+      if (role.name != 'Admin')
+        redirect_to '/softwares/', :alert => "Access denied."
+      end
     end
 end

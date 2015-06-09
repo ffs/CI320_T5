@@ -32,12 +32,9 @@
   </div>
 
   <div class="form-group field">
-    <%= f.label :roles %><br />
-    <% for role in User::ROLES %>
-      <%= check_box_tag "user[roles][#{role}]", role, @user.roles.include?(role), {:name => "user[roles][]"}%>
-      <%= label_tag "user_roles_#{role}", role.to_s.humanize %><br />
-    <% end %>
-    <%= hidden_field_tag "user[roles][]", "" %>
+    <%= f.label :roles, 'Select User Role' %><br>
+    <%  roles_array = Role.all.map { |s| [s.name, s.id] } %>
+    <%= f.select(:role_id, options_for_select(roles_array)) %>
   </div>
 
   <div class="form-group actions">

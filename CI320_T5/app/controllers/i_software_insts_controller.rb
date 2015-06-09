@@ -1,6 +1,7 @@
 class ISoftwareInstsController < ApplicationController
-  load_and_authorize_resource
   before_action :set_i_software_inst, only: [:show, :edit, :update, :destroy]
+  before_filter :get_user
+  before_filter :admin_authorization, :except => [:index, :show]
 
   # GET /i_software_insts
   # GET /i_software_insts.json
@@ -71,5 +72,16 @@ class ISoftwareInstsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def i_software_inst_params
       params.require(:i_software_inst).permit(:i_software_inst_name, :server_id, :i_software_id)
+    end
+
+    def get_user
+      @user = current_user
+    end
+
+    def admin_authorization
+      role = Role.find(current_user.role_id)
+      if (role.name != 'Admin')
+        redirect_to '/instances/', :alert => "Access denied."
+      end
     end
 end

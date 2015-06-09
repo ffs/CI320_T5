@@ -18,10 +18,6 @@
     <%= f.email_field :email %>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
   <div class="form-group field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
@@ -38,13 +34,18 @@
   </div>
 
   <div class="form-group field">
-    <%= f.label :roles %><br />
-    <% for role in User::ROLES %>
-      <%= check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
-      <%=h role.humanize %><br />
-    <% end %>
-    <%= hidden_field_tag "user[roles][]", "" %>
+    <%= f.label 'Actual Role: ' %>
+    <%  role = Role.find(current_user.role_id) %>
+    <%= role.name %>
   </div>
+
+  <% if role.name == 'Admin' %>
+    <div class="form-group field">
+      <%= f.label :roles, 'Edit User Role' %><br>
+      <%  roles_array = Role.all.map { |s| [s.name, s.id] } %>
+      <%= f.select(:role_id, options_for_select(roles_array)) %>
+    </div>
+  <% end %>
 
   <div class="form-group actions">
     <%= f.submit "Update", class: 'btn btn-lg btn-success' %>

@@ -1,6 +1,7 @@
 class DbsController < ApplicationController
-  load_and_authorize_resource
   before_action :set_db, only: [:show, :edit, :update, :destroy]
+  before_filter :get_user
+  before_filter :admin_authorization, :except => [:index, :show]
 
   # GET /dbs
   # GET /dbs.json
@@ -71,5 +72,16 @@ class DbsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def db_params
       params.require(:db).permit(:db_name, :version, :growthRate, :clonedate, :cpu, :memory, :storage)
+    end
+
+    def get_user
+      @user = current_user
+    end
+
+    def admin_authorization
+      role = Role.find(current_user.role_id)
+      if (role.name != 'Admin')
+        redirect_to '/softwares/', :alert => "Access denied."
+      end
     end
 end

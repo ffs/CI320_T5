@@ -32,6 +32,14 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
+  as :user do
+    get 'dashboard', :to => 'devise/registrations#edit', :as => :user_root
+  end
+
+  namespace :admin do
+    resources :users # Have the admin manage them here.
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

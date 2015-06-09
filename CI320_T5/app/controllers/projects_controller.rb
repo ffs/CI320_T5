@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_filter :get_user
+  before_filter :admin_authorization, :except => [:index, :show]
 
   # GET /projects
   # GET /projects.json
@@ -70,5 +72,16 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:project_name, :start_date, :end_date, :solicitation_date, :allocation_date)
+    end
+
+    def get_user
+      @user = current_user
+    end
+
+    def admin_authorization
+      role = Role.find(current_user.role_id)
+      if (role.name != 'Admin')
+        redirect_to '/softwares/', :alert => "Access denied."
+      end
     end
 end

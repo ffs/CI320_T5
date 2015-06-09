@@ -48,8 +48,6 @@
       <tr>
         <td><%= fsoftware.f_software_inst_name %></td>
         <td><%= link_to 'Show', fsoftware, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_f_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Destroy', fsoftware, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
 
@@ -59,8 +57,6 @@
       <tr>
         <td><%= dbms.db_inst_name %></td>
         <td><%= link_to 'Show', dbms, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_i_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Destroy', dbms, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
 
@@ -70,8 +66,6 @@
       <tr>
         <td><%= software.i_software_inst_name %></td>
         <td><%= link_to 'Show', software, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_i_software_inst_path(@server.id), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>

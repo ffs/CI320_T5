@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609013946) do
+ActiveRecord::Schema.define(version: 20150609175854) do
 
   create_table "abilities", force: true do |t|
     t.datetime "created_at"
@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(version: 20150609013946) do
   end
 
   create_table "roles", force: true do |t|
-    t.string   "role_name"
-    t.string   "role_description"
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -139,9 +139,11 @@ ActiveRecord::Schema.define(version: 20150609013946) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "last_name"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
 end

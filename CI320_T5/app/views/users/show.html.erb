@@ -18,7 +18,9 @@
 		</tr>
 		<tr>
 			<td class="oce-first">Role:</td>
-			<td><%= @user.roles.first.name %></td>
+			<td><% role = Role.find(@user.role_id) %>
+				<%= role.name %>
+			</td>
 		</tr>
 		<tr>
 			<td class="oce-first">Created at:</td>

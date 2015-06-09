@@ -1,8 +1,6 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><%= link_to 'All Softwares', softwares_path %></li>
-  <li><%= link_to 'Final Softwares', f_softwares_path %></li>
-  <li><%= link_to 'Intermediate Software', i_softwares_path %></li>
-  <li><%= link_to 'Databases', dbs_path %></li>
+  <li><%= link_to 'Installed Softwares', instances_path %></li>
 </ul>
 
 <h3> Final Softwares </h3>
@@ -73,7 +71,7 @@
   <tbody>
     <% @dbs.each do |db| %>
       <tr>
-        <td><%= db.i_software_name %></td>
+        <td><%= db.db_name %></td>
         <td><%= db.version %></td>
         <td><%= link_to 'Show', db, class: 'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Edit', edit_f_software_path(db), class: 'btn btn-primary btn-xs' %></td>

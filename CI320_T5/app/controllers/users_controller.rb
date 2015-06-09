@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
-  after_action :verify_authorized
-
+  before_filter :admin_authorization
+  
 
   # GET /users
   # GET /users.json
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
+  def edit  
   end
 
   # POST /users
@@ -64,10 +63,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def accessible_roles
-    @accessible_roles = Role.accessible_by(current_ability,:read)
-  end
  
   # Make the current user object available to views
   #----------------------------------------
@@ -79,12 +74,24 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-    end
-
-    
+    end    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :roles)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role_id)
+    end
+
+    def admin_authorization
+      role = Role.find(current_user.role_id)
+      if (role.name != 'Admin')
+        redirect_to '/dashboard', :alert => "Access denied."
+      end
+    end
+
+    def admin?
+      role = Role.find(current_user.role_id)
+        if (role.name == 'Admin')
+          return true;
+        end
     end
 end
