@@ -33,7 +33,10 @@
 <p>
   <strong>Software List:</strong>
   
-  <table class="table">
+  
+
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Software Name</th>
@@ -47,7 +50,7 @@
     <% @fsoft.each do |fsoftware| %>
       <tr>
         <td><%= fsoftware.f_software_inst_name %></td>
-        <td><%= link_to 'Show', fsoftware, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Show', fsoftware, class: 'btn btn-default btn-xs' %></td>
       </tr>
     <% end %>
 
@@ -56,7 +59,7 @@
     <% @db.each do |dbms| %>
       <tr>
         <td><%= dbms.db_inst_name %></td>
-        <td><%= link_to 'Show', dbms, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Show', dbms, class: 'btn btn-default btn-xs' %></td>
       </tr>
     <% end %>
 
@@ -65,7 +68,7 @@
     <% @isoft.each do |software| %>
       <tr>
         <td><%= software.i_software_inst_name %></td>
-        <td><%= link_to 'Show', software, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Show', software, class: 'btn btn-default btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>

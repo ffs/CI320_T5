@@ -1,9 +1,10 @@
 <h1>Listing db_insts</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Db inst name</th>
+      <th>Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,9 +13,9 @@
     <% @db_insts.each do |db_inst| %>
       <tr>
         <td><%= db_inst.db_inst_name %></td>
-        <td><%= link_to 'Show', db_inst %></td>
-        <td><%= link_to 'Edit', edit_db_inst_path(db_inst) %></td>
-        <td><%= link_to 'Destroy', db_inst, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', db_inst, class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_db_inst_path(db_inst), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', db_inst, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +23,6 @@
 
 <br>
 
-<%= link_to 'New Db inst', new_db_inst_path %>
+<%= link_to new_db_inst_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Database Instance
+<% end %>

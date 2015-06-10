@@ -14,7 +14,10 @@
 
   <strong>Instances:</strong>
 
-  <table class="table">
+  
+
+
+<table class="table table-striped">
     <thead>
       <tr>
       <th>Name</th>
@@ -31,9 +34,9 @@
         <tr>
           <td><%= isoftware.i_software_inst_name %></td>
           <td><%= link_to server.server_name, server %></td>
-          <td><%= link_to 'Show', isoftware, class: 'btn btn-primary btn-xs' %></td>
-          <td><%= link_to 'Edit', edit_i_software_inst_path(server.id), class: 'btn btn-primary btn-xs' %></td>
-          <td><%= link_to 'Destroy', isoftware, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Show', isoftware, class: 'btn btn-default btn-xs' %></td>
+          <td><%= link_to 'Edit', edit_i_software_inst_path(server.id), class: 'btn btn-default btn-xs' %></td>
+          <td><%= link_to 'Destroy', isoftware, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
         </tr>
 
       <% end %>

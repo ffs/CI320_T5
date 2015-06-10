@@ -3,37 +3,36 @@
 	<% role = Role.find(current_user.role_id) %>
 	<% case role.name %>
 		<% when 'Admin' %>
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar pull-right" role="navigation">
 		<div class="container">
-			<div class="navbar-header">
-				<ul class="nav">
-					<a class="navbar-brand" href="/dashboard">Dashboard</a>
-					<a class="navbar-brand" href="/projects">Projects</a>
-					<a class="navbar-brand" href="/environments">Environments</a>
-					<a class="navbar-brand" href="/servers">Servers</a>
-					<a class="navbar-brand" href="/softwares">Softwares</a>
-					<a class="navbar-brand" href="/users">Users</a>
-					<a class="navbar-brand" href="/servers">Administration</a>
-					<%= link_to "Edit Profile", edit_user_registration_path(current_user), :class => 'navbar-brand'  %>
-					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-brand' %>
+				<ul class="nav navbar-top-links navbar-right">
+					<a class="navbar-link" href="/dashboard">Dashboard</a>
+					<a class="navbar-link" href="/projects">Projects</a>
+					<a class="navbar-link" href="/environments">Environments</a>
+					<a class="navbar-link" href="/servers">Servers</a>
+					<a class="navbar-link" href="/softwares">Softwares</a>
+					<a class="navbar-link" href="/users">Users</a>
+					<a class="navbar-link" href="/servers">Administration</a>
+
+					<%= link_to image_tag("account.jpg", height: '32', width: '32') + "Edit Profile", edit_user_registration_path(current_user), :class => 'navbar-link'  %>
+					<%= link_to image_tag("logout.png", height: '32', width: '32') + "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>		
+
 				</ul>
-			</div>
 		</div>
 		</nav>
 		<% when 'Reader' %>
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar pull-right" role="navigation">
 		<div class="container">
-			<div class="navbar-header">
-				<ul class="nav">
-					<a class="navbar-brand" href="/dashboard">Dashboard</a>
-					<a class="navbar-brand" href="/servers">Projects</a>
-					<a class="navbar-brand" href="/environments">Environments</a>
-					<a class="navbar-brand" href="/servers">Servers</a>
-					<a class="navbar-brand" href="/softwares">Softwares</a>
-					<%= link_to "Edit Profile", edit_user_registration_path(current_user), :class => 'navbar-brand'  %>
-					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-brand' %>
+				<ul class="nav navbar-top-links navbar-right">
+					<a class="navbar-link" href="/dashboard">Dashboard</a>
+					<a class="navbar-link" href="/projects">Projects</a>
+					<a class="navbar-link" href="/environments">Environments</a>
+					<a class="navbar-link" href="/servers">Servers</a>
+					<a class="navbar-link" href="/softwares">Softwares</a>
+					<a class="navbar-link" href="/servers">Administration</a>
+					<%= link_to "Edit Profile", edit_user_registration_path(current_user), :class => 'navbar-link'  %>
+					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
 				</ul>
-			</div>
 		</div>
 		</nav>
 	<% end %>
