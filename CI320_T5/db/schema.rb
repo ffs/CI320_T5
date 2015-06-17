@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609175854) do
-
-  create_table "abilities", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20150617124650) do
 
   create_table "db_insts", force: true do |t|
     t.string   "db_inst_name"
@@ -106,11 +101,6 @@ ActiveRecord::Schema.define(version: 20150609175854) do
     t.datetime "updated_at"
   end
 
-  create_table "roles_users", id: false, force: true do |t|
-    t.integer "user_id", null: false
-    t.integer "role_id", null: false
-  end
-
   create_table "servers", force: true do |t|
     t.string   "server_name"
     t.string   "cpu"
@@ -124,10 +114,10 @@ ActiveRecord::Schema.define(version: 20150609175854) do
 
   create_table "users", force: true do |t|
     t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
-    t.integer  "roles_mask"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -138,7 +128,6 @@ ActiveRecord::Schema.define(version: 20150609175854) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "last_name"
     t.integer  "role_id"
   end
 

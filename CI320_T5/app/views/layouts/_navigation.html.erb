@@ -30,8 +30,8 @@
 					<a class="navbar-link" href="/servers">Servers</a>
 					<a class="navbar-link" href="/softwares">Softwares</a>
 					<a class="navbar-link" href="/servers">Administration</a>
-					<%= link_to "Edit Profile", edit_user_registration_path(current_user), :class => 'navbar-link'  %>
-					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+					<%= link_to image_tag("account.jpg", height: '32', width: '32') + "Edit Profile", edit_user_registration_path(current_user), :class => 'navbar-link'  %>
+					<%= link_to image_tag("logout.png", height: '32', width: '32') + "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
 				</ul>
 		</div>
 		</nav>
